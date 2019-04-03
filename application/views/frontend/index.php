@@ -57,6 +57,9 @@
   <link href="<?php echo base_url();?>assets/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
   <link href="<?php echo base_url();?>assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+  <!-- select2 -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/lib/select2/css/select2.min.css">
    
 
   <!-- =======================================================
@@ -129,6 +132,15 @@
   <script src="<?php echo base_url();?>assets/lib/isotope/isotope.pkgd.min.js"></script>
   <script src="<?php echo base_url();?>assets/lib/lightbox/js/lightbox.min.js"></script>
   <script src="<?php echo base_url();?>assets/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
+  
+  <!-- select2 -->
+  <script src="<?php echo base_url() ?>assets/lib/select2/js/select2.full.min.js"></script>
+  <script>
+            $(function () {
+                //Initialize Select2 Elements
+                $('.select2').select2();
+            });
+        </script>
 
 
 </body>

@@ -86,7 +86,7 @@
 
         </div>
 
-        <form action="<?php echo base_url();?>home/maintenance" method="post">
+        <form action="<?php echo base_url();?>order/create_action" method="post">
 
         <div class="col-lg-9">
 
@@ -110,7 +110,7 @@
 
                   <td>&nbsp;:&nbsp;&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_name_sender" id="c_name_sender" class="form-control"></td>
 
                 </tr>
 
@@ -120,7 +120,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_phone_sender" id="c_phone_sender" class="form-control"></td>
 
                 </tr>
 
@@ -130,7 +130,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_city_sender" id="c_city_sender" class="form-control"></td>
 
                 </tr>
 
@@ -140,7 +140,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><textarea class="form-control"></textarea></td>
+                  <td><textarea name="c_address_sender" id="c_address_sender" class="form-control"></textarea></td>
 
                 </tr>
 
@@ -160,7 +160,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_name_receiver" id="c_name_receiver" class="form-control"></td>
 
                 </tr>
 
@@ -170,7 +170,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_phone_receiver" id="c_phone_receiver" class="form-control"></td>
 
                 </tr>
 
@@ -180,7 +180,7 @@
 
                   <td>&nbsp;:&nbsp;&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="c_city_receiver" id="c_city_receiver" class="form-control"></td>
 
                 </tr>
 
@@ -190,7 +190,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><textarea class="form-control"></textarea></td>
+                  <td><textarea name="c_address_receiver" id="c_address_receiver" class="form-control"></textarea></td>
 
                 </tr>
 
@@ -222,15 +222,13 @@
 
                   <td>
 
-                    <select class="form-control">
-
-                      <option>Dus</option>
-
-                      <option>Koper</option>
-
-                      <option>Storage Box</option>
-
-                    </select>
+                  <select class="form-control" name="dt_packing" id="dt_packing">
+                    <?php
+                      foreach ($packing as $p):
+                    ?>
+                      <option value="<?php echo $p->pk_id;?>" ><?php echo $p->pk_name;?></option>
+                    <?php endforeach; ?>
+                  </select>
 
                   </td>
 
@@ -238,11 +236,11 @@
 
                 <tr style="height:50px">
 
-                  <td>Berat</td>
+                  <td>Berat(kg)</td>
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="dt_total_weight" id="dt_total_weight" class="form-control"></td>
 
                 </tr>
 
@@ -252,7 +250,7 @@
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" name="dt_total_items" id="dt_total_items" class="form-control"></td>
 
                 </tr>
 
@@ -270,13 +268,54 @@
 
                 <tr style="height:50px">
 
+                  <td>Jenis Barang : </td>
+
+                </tr>
+
+                <tr style="height:50px">
+
+                <td>
+                <select multiple class="form-control select2" name="product_tags[]" multiple="multiple" data-placeholder="Pilih Jenis Barang" id="p_list_products">
+                  <!-- <option value="0">Sendal</option>
+                  <option value="1">Sepatu</option> -->
+                  <?php
+
+                    $active = '';
+                    $total = count($product);
+
+                    $selected = '';
+                    // Looping All Tags
+                    for ($i=0; $i < $total ; $i++):
+                      // Looping Post_tag jika ada
+                      $p = explode(',', $dt_list_products);
+
+                      foreach ($p as $bt){
+                        $active = $bt;
+
+                        if($active == $product[$i]['p_id']){
+                          $selected = ' selected=selected';
+                          break;
+                        }else{
+                          $selected = '';
+                        }
+                    }
+                  ?>
+                  <option value="<?php echo $product[$i]['p_id']; ?>" <?php echo $selected ?> ><?php echo $product[$i]['p_name'];?></option>
+                  <?php endfor; ?>
+                </select>
+                </td>
+
+                </tr>
+
+                <tr style="height:50px">
+
                   <td>Deskripsi Isi Paket : </td>
 
                 </tr>
 
                 <tr style="height:50px">
 
-                  <td><textarea style="width:400px;height:102px" class="form-control"></textarea></td>
+                  <td><textarea name="dt_desc" id="dt_desc" style="width:400px;height:102px" class="form-control"></textarea></td>
 
                 </tr>
 
