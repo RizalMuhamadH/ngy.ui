@@ -1,12 +1,12 @@
  <!--SLIDER-->
 
-  <!-- <div class="slider">
+  <div class="slider">
 
-    <div id="myCarousel" class="carousel slide" data-ride="carousel"> -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
       <!-- Indicators -->
 
-      <!-- <ol class="carousel-indicators">
+      <ol class="carousel-indicators">
 
         <li data-target="#myCarousel" data-slide-to="0" id="slider-nav" class="active"></li>
 
@@ -14,13 +14,13 @@
 
         <li data-target="#myCarousel" data-slide-to="2" id="slider-nav"></li>
 
-      </ol> -->
+      </ol>
 
   
 
       <!-- Wrapper for slides -->
 
-      <!-- <div class="carousel-inner">
+      <div class="carousel-inner">
 
         <div class="item active">
 
@@ -44,11 +44,11 @@
 
         </div>
 
-      </div>   -->
+      </div>  
 
       <!-- Left and right controls -->
 
-      <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev">
 
         <span class="sr-only">Previous</span>
 
@@ -62,19 +62,19 @@
 
     </div>
 
-  </div> -->
+  </div>
 
   <!--/ SLIDER-->
 
 
   <!-- Start Slider Area -->
-  <div id="home" class="slider-area">
+  <!-- <div id="home" class="slider-area">
     <div class="bend niceties preview-2">
       <div id="ensign-nivoslider" class="slides">
         <img src="<?php echo base_url();?>assets/frontend/img/banner1.jpg" alt="" title="#slider-direction-1" style="width:100%;" />
         <img src="<?php echo base_url();?>assets/frontend/img/banner2.jpg" alt="" title="#slider-direction-2" style="width:100%;" />
         <img src="<?php echo base_url();?>assets/frontend/img/banner3.jpg" alt="" title="#slider-direction-3" style="width:100%;" />
-      </div>
+      </div> -->
 
       <!-- direction 1 -->
       <!-- <div id="slider-direction-1" class="slider-direction slider-one">
@@ -151,8 +151,8 @@
         </div>
       </div> -->
       
-    </div>
-  </div>
+    <!-- </div>
+  </div> -->
   <!-- End Slider Area -->
 
 
@@ -248,9 +248,9 @@
 
             <h2><font color="Grey">Tracking Paket</font></h2>
 
-            <form action="<?php echo base_url();?>home/maintenance">
+            <form action="<?php echo base_url();?>tracking" method="post">
 
-              <input type="text" class="form-control form-cek-harga" style="width:250px;" placeholder="Masukan Nomor Resi">
+              <input type="text" name="no_trans" id="no_trans" class="form-control form-cek-harga" style="width:250px;" placeholder="Masukan Nomor Resi">
 
               <input type="submit" class="btn btn-success" style="height:40px;margin-top:5px" value="Cek">
 
@@ -267,3 +267,60 @@
   </div>
 
   <!--CEK HARGA PAKET-->
+  
+  <?php if($this->session->userdata('message') <> ''){ ?>
+    <!-- <style>
+      /* body {font-family: Arial, Helvetica, sans-serif;} */
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content */
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 50%;
+      }
+    </style> -->
+      <!-- Modal -->
+      <div class="modal" id="myModal" style="display: block;position: fixed;z-index: 1;padding-top: 200px;left: 0;top: 0;width: 100%;height: 100%;overflow: auto;">
+        <div class="modal-content" style="background-color: #fefefe;margin: auto;padding: 20px;border: 1px solid #888;width: 50%;">
+            <div class="modal-header">
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button> -->
+            </div>
+            <div class="modal-body">
+              
+            <p><?php echo $this->session->userdata('message'); ?></p>
+            </div>
+            <div class="modal-footer">
+              <button id="close" type="button" class="btn btn-secondary" >Close</button>
+            </div>
+          </div>
+      </div>
+      
+      <script>
+        
+      // Get the modal
+      var modal = document.getElementById('myModal');
+      var btn = document.getElementById("close");
+      btn.onclick = function() {
+          modal.style.display = "none";
+      }
+      </script>
+    <?php } ?>

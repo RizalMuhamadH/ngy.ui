@@ -153,6 +153,22 @@ class Home extends CI_Controller
 
     }
 
+    function tracking()
+
+    {
+
+      $noTrans = $this->input->post('no_trans');
+
+      $data = array(
+        'product' => $this->Product_model->get_products(),
+        'packing' => $this->Packing_model->get_all(),
+        'status' => $this->Status_model->get_all(),
+      );
+
+      $this->template->display('frontend/tracking');
+
+    }
+
 
 
     
