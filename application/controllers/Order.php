@@ -27,8 +27,8 @@ class Order extends CI_Controller
 
     public function index()
     {
-        $data['page'] = 'customer/customer_list';
-        $this->load->view('dashboard/dashboard', $data);
+        // $data['page'] = 'customer/customer_list';
+        $this->load->view('home/delivery_now');
     } 
     
     public function json() {
@@ -132,12 +132,14 @@ class Order extends CI_Controller
     
     public function create_action() 
     {
+        error_reporting(0);
         $this->_rules();
 
         if ($this->form_validation->run() == FALSE) {
-            $this->create();
+            redirect(site_url('home/delivery_now'));
         } else {
 
+            // echo json_encode($this->input->post('product_tags'));
             $product_tags = $this->input->post('product_tags');
             $pt = '';
             foreach ($product_tags as $product) {
@@ -166,7 +168,7 @@ class Order extends CI_Controller
                 // 'dt_total_weight' => $pt,
                 'dt_total_weight' => $this->input->post('dt_total_weight'),
                 'dt_packing' => $this->input->post('dt_packing'),
-                'dt_total_price' => $this->input->post('dt_total_price'),
+                'dt_total_price' => 0,
                 'dt_desc' => $this->input->post('dt_desc'),
                 'dt_date' => date("Y/m/d H:i:s"),
             );
@@ -176,10 +178,10 @@ class Order extends CI_Controller
             $noTrans = $idCustomer.$idDescTrans.date("Y").date("m").date("d").strtoupper(random_string('alnum', 4));
             $trans = array(
                 't_no_trans' => $noTrans,
-                't_date_delivery' => $this->input->post('t_date_delivery'),
-                't_date_reception' => $this->input->post('t_date_reception'),
-                't_status' => $this->input->post('t_status'),
-                't_desc' => $this->input->post('t_desc'),
+                't_date_delivery' => '0000-00-00 00:00:00',
+                't_date_reception' => '0000-00-00 00:00:00',
+                't_status' => 1,
+                't_desc' => "Segera lakukan pembayaran",
                 'dt_id ' => $idDescTrans,
                 'c_id ' => $idCustomer,
             );
@@ -204,8 +206,9 @@ class Order extends CI_Controller
 
             $this->Transaction_model->insert($trans);
 
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('customer'));
+            // $this->session->set_flashdata('modal', 'true');
+            $this->session->set_flashdata('message', 'Pesanan Berhasil dengan No.Transaksi <h3><b>'.$noTrans.'</h3></b>');
+            redirect(site_url('home'));
         }
     }
     
@@ -338,7 +341,12 @@ class Order extends CI_Controller
 	$this->form_validation->set_rules('c_address_receiver', 'alamat', 'trim|required');
 	$this->form_validation->set_rules('c_city_receiver', 'kota', 'trim|required');
 	$this->form_validation->set_rules('c_postcode_receiver', 'kode pos', 'trim|required');
-	$this->form_validation->set_rules('c_phone_receiver', 'telepon', 'trim|required');
+    $this->form_validation->set_rules('c_phone_receiver', 'telepon', 'trim|required');
+
+    $this->form_validation->set_rules('dt_total_items', 'total', 'trim|required');
+    $this->form_validation->set_rules('dt_total_weight', 'berat', 'trim|required');
+    $this->form_validation->set_rules('dt_packing', 'packing', 'trim|required');
+    $this->form_validation->set_rules('dt_desc', 'deskripsi', 'trim|required');
 
 	$this->form_validation->set_rules('c_id', 'c_id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');

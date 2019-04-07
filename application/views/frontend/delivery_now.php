@@ -38,27 +38,18 @@
 
   <!--/ SLIDER-->
 
-  <!-- Start Bottom Header -->
-  <!-- <div class="header-bg page-area">
-    <div class="home-overly"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="slider-content text-center">
-            <div class="header-bottom">
-              <div class="layer2 wow zoomIn" data-wow-duration="1s" data-wow-delay=".4s">
-                <h1 class="title2">Blog Details </h1>
-              </div>
-              <div class="layer3 wow zoomInUp" data-wow-duration="2s" data-wow-delay="1s">
-                <h2 class="title3">profesional Blog Page</h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <!-- The Modal -->
+  <!-- <div id="myModal" class="modal" style="display: block;position: fixed;"> -->
+
+  <!-- Modal content -->
+  <!-- <div class="modal-content">
+    <span class="close" data-dismiss="modal">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
   </div> -->
-  <!-- END Header -->
+
+  
 
   <!--CEK HARGA PAKET--> 
 
@@ -144,6 +135,16 @@
 
                 </tr>
 
+                <tr  style="height:50px">
+
+                  <td>Kode Pos</td>
+
+                  <td>&nbsp;:&nbsp;</td>
+
+                  <td><input type="text" name="c_postcode_sender" id="c_postcode_sender" class="form-control"></td>
+
+                </tr>
+
               </table>
 
           </div>
@@ -191,6 +192,16 @@
                   <td>&nbsp;:&nbsp;</td>
 
                   <td><textarea name="c_address_receiver" id="c_address_receiver" class="form-control"></textarea></td>
+
+                </tr>
+
+                <tr  style="height:50px">
+
+                  <td>Kode Pos</td>
+
+                  <td>&nbsp;:&nbsp;</td>
+
+                  <td><input type="text" name="c_postcode_receiver" id="c_postcode_receiver" class="form-control"></td>
 
                 </tr>
 
@@ -300,7 +311,7 @@
                         }
                     }
                   ?>
-                  <option value="<?php echo $product[$i]['p_id']; ?>" <?php echo $selected ?> ><?php echo $product[$i]['p_name'];?></option>
+                  <option value="<?php echo $product[$i]['p_id']; ?>" ><?php echo $product[$i]['p_name'];?></option>
                   <?php endfor; ?>
                 </select>
                 </td>
@@ -360,3 +371,31 @@
   </div>
 
   <!--CEK HARGA PAKET-->
+
+  <?php if($this->session->userdata('message') <> ''){ ?>
+    <!-- Modal -->
+    <div class="modal" id="exampleModal" style="display: block;position: fixed;z-index: 1;padding-top: 200px;left: 0;top: 0;width: 100%;height: 100%;overflow: auto;">
+      <div class="modal-content" style="background-color: #fefefe;margin: auto;padding: 20px;border: 1px solid #888;width: 50%;">
+          <div class="modal-header">
+            <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          <div class="modal-body">
+            
+          <p><?php echo $this->session->userdata('message'); ?></p>
+          </div>
+          <div class="modal-footer">
+            <button id="close" type="button" class="btn btn-secondary" >Close</button>
+          </div>
+        </div>
+    </div>
+    
+    <script>
+      var btn = document.getElementById("close");
+      btn.onclick = function() {
+        modal.style.display = "none";
+      }
+    </script>
+  <?php } ?>
+  
