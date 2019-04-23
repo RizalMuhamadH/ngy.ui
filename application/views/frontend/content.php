@@ -174,17 +174,19 @@
 
               <tr>
 
-                <td>Provinsi</td>
+                <td>Ukuran</td>
 
                 <td>&nbsp;:&nbsp;</td>
 
                 <td>
 
-                  <select class="form-control" style="width:340px;margin-left:10px;">
+                  <select id="dus" name="dus" onchange="getCheck()" class="form-control" style="width:340px;margin-left:10px;">
 
-                    <option>Pulau Jawa</option>
+                    <option value="0">Dus S</option>
 
-                    <option>Luar Pulau Jawa</option>
+                    <option value="1">Dus M</option>
+
+                    <option value="2">Dus LL</option>
 
                   </select>
 
@@ -200,19 +202,30 @@
 
                 <td>
 
-                  <input type="text" class="form-control form-cek-harga" placeholder="Panjang">
+                  <input type="text" id="_panjang" class="form-control form-cek-harga" placeholder="Panjang" disabled>
 
-                  <input type="text" class="form-control form-cek-harga" placeholder="Lebar">
+                  <input type="text" id="_lebar" class="form-control form-cek-harga" placeholder="Lebar" disabled>
 
-                  <input type="text" class="form-control form-cek-harga" placeholder="Tinggi">
+                  <input type="text" id="_tinggi" class="form-control form-cek-harga" placeholder="Tinggi" disabled>
 
                 </td>
 
               </tr>
 
               <tr>
+                <td>Biaya</td>
+                <td>&nbsp;:&nbsp;</td>
+                <td>
+                  <div style="width:340px;margin-left:10px;padding-top:10px;">
+                    <p id="_biaya"></p>
+                  </div>
+                  <!-- <input type="text" id="_harga" class="form-control" placeholder="Harga" style="width:340px;margin-left:10px;" disabled> -->
+                </td>
+              </tr>
 
-                <td>Berat</td>
+              <tr>
+
+                <!-- <td>Berat</td>
 
                 <td>&nbsp;:&nbsp;</td>
 
@@ -220,17 +233,17 @@
 
                   <input type="text" class="form-control form-cek-harga" placeholder="KG">
 
-                </td>
+                </td> -->
 
               </tr>
 
               <tr>
 
-                <td colspan="3">
+                <!-- <td colspan="3">
 
                   <input type="submit" class="btn btn-success" style="height:40px;width:425px;margin-top:5px" value="Cek">
 
-                </td>
+                </td> -->
 
               </tr>
 
@@ -265,6 +278,31 @@
     </div>
 
   </div>
+
+  <script>
+        getCheck();
+        function getCheck(){
+          var select = document.getElementById("dus");
+          var value = select.options[select.selectedIndex].value;
+
+          if(value == "0"){
+            document.getElementById("_panjang").value = "50";
+            document.getElementById("_lebar").value = "33";
+            document.getElementById("_tinggi").value = "33";
+            document.getElementById("_biaya").innerHTML = "8.000 Yen atau 1.007.246,52 Rupiah";
+          } else if(value == "1"){
+            document.getElementById("_panjang").value = "55";
+            document.getElementById("_lebar").value = "44";
+            document.getElementById("_tinggi").value = "45";
+            document.getElementById("_biaya").innerHTML = "12.000 Yen atau 1.510.869,78 Rupiah";
+          } else {
+            document.getElementById("_panjang").value = "66";
+            document.getElementById("_lebar").value = "56";
+            document.getElementById("_tinggi").value = "48";
+            document.getElementById("_biaya").innerHTML = "18.000 Yen atau 2.266.304,67 Rupiah";
+          }
+        }
+      </script>
 
   <!--CEK HARGA PAKET-->
   
@@ -323,4 +361,6 @@
           modal.style.display = "none";
       }
       </script>
+
+      
     <?php } ?>
