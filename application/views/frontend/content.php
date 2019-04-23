@@ -201,7 +201,7 @@
                 <td>&nbsp;:&nbsp;</td>
 
                 <td>
-
+                  
                   <input type="text" id="_panjang" class="form-control form-cek-harga" placeholder="Panjang" disabled>
 
                   <input type="text" id="_lebar" class="form-control form-cek-harga" placeholder="Lebar" disabled>
@@ -286,19 +286,19 @@
           var value = select.options[select.selectedIndex].value;
 
           if(value == "0"){
-            document.getElementById("_panjang").value = "50";
-            document.getElementById("_lebar").value = "33";
-            document.getElementById("_tinggi").value = "33";
+            document.getElementById("_panjang").value = "50 cm (P)";
+            document.getElementById("_lebar").value = "33 cm (L)";
+            document.getElementById("_tinggi").value = "33 cm (T)";
             document.getElementById("_biaya").innerHTML = "8.000 Yen atau 1.007.246,52 Rupiah";
           } else if(value == "1"){
-            document.getElementById("_panjang").value = "55";
-            document.getElementById("_lebar").value = "44";
-            document.getElementById("_tinggi").value = "45";
+            document.getElementById("_panjang").value = "55 cm (P)";
+            document.getElementById("_lebar").value = "44 cm (L)";
+            document.getElementById("_tinggi").value = "45 cm (T)";
             document.getElementById("_biaya").innerHTML = "12.000 Yen atau 1.510.869,78 Rupiah";
           } else {
-            document.getElementById("_panjang").value = "66";
-            document.getElementById("_lebar").value = "56";
-            document.getElementById("_tinggi").value = "48";
+            document.getElementById("_panjang").value = "66 cm (P)";
+            document.getElementById("_lebar").value = "56 cm (L)";
+            document.getElementById("_tinggi").value = "48 cm (T)";
             document.getElementById("_biaya").innerHTML = "18.000 Yen atau 2.266.304,67 Rupiah";
           }
         }
