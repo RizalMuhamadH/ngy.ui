@@ -168,7 +168,7 @@
 
           <h2><font color="Grey">Cek Biaya Kirim</font></h2>
 
-          <form action="<?php echo base_url();?>home/maintenance">
+          <form action="<?php echo base_url();?>home/delivery_now">
 
             <table>
 
@@ -239,11 +239,14 @@
 
               <tr>
 
-                <!-- <td colspan="3">
+                <td colspan="3">
 
-                  <input type="submit" class="btn btn-success" style="height:40px;width:425px;margin-top:5px" value="Cek">
+                <a href="<?php echo base_url();?>home/delivery_now" style="height:40px;width:425px;margin-top:5px;background:red;border-radius:6px;color:white"><button type="button" class="btn btn-success btn-block">Order Now</button></a>
 
-                </td> -->
+                  <!-- <input type="submit" class="btn btn-success" style="height:40px;width:425px;margin-top:5px" value="Order Now"> -->
+                  <!-- <button type="button" class="btn">Basic</button> -->
+
+                </td>
 
               </tr>
 
