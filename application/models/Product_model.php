@@ -25,6 +25,33 @@ class Product_model extends CI_Model
         return $this->datatables->generate();
     }
 
+    function query($query)
+    {
+        // $sql = "SELECT p_id as id, p_name as text FROM product WHERE p_name LIKE '%$query%' ";
+        // $this->db->cache_off();
+        $this->db->select('p_id as id, p_name as text');
+        $this->db->like('p_name', $query);
+        $result = $this->db->get($this->table);
+        // $result = $this->db->query($sql);
+        return $result;
+        // if($result->num_rows() > 0){
+        //     return $result;
+        // } else {
+        //     if (strpos($query, ',') !== false) {
+        //         echo 'true';
+        //     }
+        // }
+    }
+
+    function get_id($id)
+    {
+        $this->db->cache_off();
+        $this->db->select('p_id as id, p_name as text');
+        $this->db->where('p_id', $id);
+        $result = $this->db->get($this->table);
+        return $result;
+    }
+
     // get all
     function get_all()
     {
@@ -68,7 +95,9 @@ class Product_model extends CI_Model
     // insert data
     function insert($data)
     {
+        $this->db->cache_off();
         $this->db->insert($this->table, $data);
+        return $this->db->insert_id();
     }
 
     // update data

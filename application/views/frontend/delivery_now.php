@@ -286,10 +286,10 @@
                 <tr style="height:50px">
 
                 <td>
-                <select multiple class="form-control select2" name="product_tags[]" multiple="multiple" data-placeholder="Pilih Jenis Barang" id="p_list_products">
+                <select multiple class="form-control select2" name="product_tags[]" multiple="multiple" data-placeholder="List Barang (barang, barang, barang,)" id="p_list_products">
                   <!-- <option value="0">Sendal</option>
                   <option value="1">Sepatu</option> -->
-                  <?php
+                  <!-- <?php
 
                     $active = '';
                     $total = count($product);
@@ -310,9 +310,9 @@
                           $selected = '';
                         }
                     }
-                  ?>
-                  <option value="<?php echo $product[$i]['p_id']; ?>" ><?php echo $product[$i]['p_name'];?></option>
-                  <?php endfor; ?>
+                  ?> -->
+                  <!-- <option value="<?php echo $product[$i]['p_id']; ?>" ><?php echo $product[$i]['p_name'];?></option> -->
+                  <!-- <?php endfor; ?> -->
                 </select>
                 </td>
 
@@ -391,11 +391,43 @@
         </div>
     </div>
     
-    <script>
+    <!-- <script>
       var btn = document.getElementById("close");
       btn.onclick = function() {
         modal.style.display = "none";
       }
-    </script>
+    </script> -->
+
+    <!-- <script type="text/javascript">
+        $(function(){
+          $('.select2').select2({
+              minimumInputLength: 3,
+              allowClear: true,
+              placeholder: 'masukkan nama barang',
+              ajax: {
+                  dataType: 'json',
+                  url: '/product/list_product',
+                  delay: 800,
+                  data: function(params) {
+                    console.log("masuk 1");
+                    return {
+                      search: params.term
+                    }
+                  },
+                  processResults: function (data, page) {
+                    console.log("masuk 1");
+                  return {
+                    results: data
+                  };
+                },
+              }
+          })
+          .on('select2:select', function (evt) {
+            var data = $(".select2 option:selected").text();
+            alert("Data yang dipilih adalah "+data);
+          }
+          );
+    });
+    </script> -->
   <?php } ?>
   

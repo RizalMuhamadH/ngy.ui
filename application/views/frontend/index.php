@@ -59,7 +59,9 @@
   <link href="<?php echo base_url();?>assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
   <!-- select2 -->
-  <link rel="stylesheet" href="<?php echo base_url() ?>assets/lib/select2/css/select2.min.css">
+  <!-- <link rel="stylesheet" href="<?php echo base_url() ?>assets/lib/select2/css/select2.min.css"> -->
+  
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" rel="stylesheet" />
    
 
   <!-- =======================================================
@@ -92,6 +94,22 @@
 
   <?php echo $_footer;?>
 
+  <!-- <script type="text/javascript">
+      $('.productName').select2({
+        placeholder: '--- Select Products ---',
+        ajax: {
+          url: '/search',
+          dataType: 'json',
+          delay: 250,
+          processResults: function (data) {
+            return {
+              results: data
+            };
+          },
+          cache: true
+        }
+      });
+  </script> -->
 
 
   <script src="<?php echo base_url();?>assets/frontend/js/jquery.min.js"></script>
@@ -134,14 +152,49 @@
   <script src="<?php echo base_url();?>assets/lib/touchSwipe/jquery.touchSwipe.min.js"></script>
   
   <!-- select2 -->
-  <script src="<?php echo base_url() ?>assets/lib/select2/js/select2.full.min.js"></script>
-  <script>
+  <!-- <script src="<?php echo base_url() ?>assets/lib/select2/js/select2.full.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+  <!-- <script>
             $(function () {
                 //Initialize Select2 Elements
                 $('.select2').select2();
             });
+        </script> -->
+        <script type="text/javascript">
+            $(function(){
+              $('.select2').select2({
+                  minimumInputLength: 3,
+                  // tags: [],
+                  type: 'GET',
+                  // allowClear: true,
+                  placeholder: 'masukkan nama barang',
+                  ajax: {
+                      url: 'http://localhost/ngy.ui/product/list_product',
+                      dataType: 'json',
+                      delay: 800,
+                      data: function(params) {
+                        console.log(params.term);
+                        return {
+                          q: params.term
+                        };
+                      },
+                      results: function (data) {
+                          console.log(data);
+                        return {
+                          results: data
+                        };
+                      },
+                      processResults: function (data) {
+                        console.log(data);
+                      return {
+                        results: data.items
+                      };
+                    },
+                  }
+              });
+        });
         </script>
-
+        
 
 </body>
 
