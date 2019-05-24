@@ -186,7 +186,9 @@
 
                     <option value="1">Dus M</option>
 
-                    <option value="2">Dus LL</option>
+                    <option value="2">Dus L</option>
+
+                    <option value="3">Dus LL</option>
 
                   </select>
 
@@ -292,17 +294,22 @@
             document.getElementById("_panjang").value = "50 cm (P)";
             document.getElementById("_lebar").value = "33 cm (L)";
             document.getElementById("_tinggi").value = "33 cm (T)";
-            document.getElementById("_biaya").innerHTML = "8.000 Yen atau 1.007.246,52 Rupiah";
+            document.getElementById("_biaya").innerHTML = "8.000 Yen";
           } else if(value == "1"){
             document.getElementById("_panjang").value = "55 cm (P)";
             document.getElementById("_lebar").value = "44 cm (L)";
             document.getElementById("_tinggi").value = "45 cm (T)";
-            document.getElementById("_biaya").innerHTML = "12.000 Yen atau 1.510.869,78 Rupiah";
+            document.getElementById("_biaya").innerHTML = "12.000 Yen";
+          } else if(value == "2"){
+            document.getElementById("_panjang").value = "48 cm (P)";
+            document.getElementById("_lebar").value = "72 cm (L)";
+            document.getElementById("_tinggi").value = "40 cm (T)";
+            document.getElementById("_biaya").innerHTML = "15.000 Yen";
           } else {
             document.getElementById("_panjang").value = "66 cm (P)";
             document.getElementById("_lebar").value = "56 cm (L)";
             document.getElementById("_tinggi").value = "48 cm (T)";
-            document.getElementById("_biaya").innerHTML = "18.000 Yen atau 2.266.304,67 Rupiah";
+            document.getElementById("_biaya").innerHTML = "18.000 Yen";
           }
         }
       </script>
