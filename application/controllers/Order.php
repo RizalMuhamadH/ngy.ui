@@ -20,9 +20,6 @@ class Order extends CI_Controller
 
         $this->load->library('ciqrcode');
 
-        if ($this->session->userdata('logged') !=TRUE) {
-			redirect(base_url());
-		}
     }
 
     public function index()
@@ -137,6 +134,7 @@ class Order extends CI_Controller
 
         if ($this->form_validation->run() == FALSE) {
             redirect(site_url('home/delivery_now'));
+            // echo "error";
         } else {
 
             // echo json_encode($this->input->post('product_tags'));
@@ -209,6 +207,7 @@ class Order extends CI_Controller
             // $this->session->set_flashdata('modal', 'true');
             $this->session->set_flashdata('message', 'Pesanan Berhasil dengan No.Transaksi <h3><b>'.$noTrans.'</h3></b>');
             redirect(site_url('home'));
+            // echo $trans;
         }
     }
     
