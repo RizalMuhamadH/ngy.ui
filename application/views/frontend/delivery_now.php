@@ -107,11 +107,23 @@
 
                 <tr  style="height:50px">
 
-                  <td>Telepon</td>
+                  <td>Telepon 1</td>
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" name="c_phone_sender" id="c_phone_sender" class="form-control"></td>
+                  <td><input type="text" name="c_phone_sender" id="c_phone_sender" class="form-control">
+                  <span class="error">* Harus di isi</span></td>
+
+                </tr>
+
+                <tr  style="height:50px">
+
+                  <td>Telepon 2</td>
+
+                  <td>&nbsp;:&nbsp;</td>
+
+                  <td><input type="text" name="c_phone_sender_2" id="c_phone_sender_2" class="form-control">
+                  <span class="error">* Harus di isi</span></td>
 
                 </tr>
 
@@ -167,11 +179,23 @@
 
                 <tr  style="height:50px">
 
-                  <td>Telepon</td>
+                  <td>Telepon 1</td>
 
                   <td>&nbsp;:&nbsp;</td>
 
-                  <td><input type="text" name="c_phone_receiver" id="c_phone_receiver" class="form-control"></td>
+                  <td><input type="text" name="c_phone_receiver" id="c_phone_receiver" class="form-control">
+                  <span class="error">* Harus di isi</span></td>
+
+                </tr>
+
+                <tr  style="height:50px">
+
+                  <td>Telepon 2</td>
+
+                  <td>&nbsp;:&nbsp;</td>
+
+                  <td><input type="text" name="c_phone_receiver_2" id="c_phone_receiver_2" class="form-control">
+                  <span class="error">* Harus di isi</span></td>
 
                 </tr>
 
