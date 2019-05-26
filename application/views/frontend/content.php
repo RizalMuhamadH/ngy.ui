@@ -296,17 +296,17 @@
             document.getElementById("_tinggi").value = "33 cm (T)";
             document.getElementById("_biaya").innerHTML = "8.000 Yen";
           } else if(value == "1"){
-            document.getElementById("_panjang").value = "55 cm (P)";
-            document.getElementById("_lebar").value = "44 cm (L)";
-            document.getElementById("_tinggi").value = "45 cm (T)";
+            document.getElementById("_panjang").value = "47 cm (P)";
+            document.getElementById("_lebar").value = "47 cm (L)";
+            document.getElementById("_tinggi").value = "43 cm (T)";
             document.getElementById("_biaya").innerHTML = "12.000 Yen";
           } else if(value == "2"){
-            document.getElementById("_panjang").value = "48 cm (P)";
-            document.getElementById("_lebar").value = "72 cm (L)";
-            document.getElementById("_tinggi").value = "40 cm (T)";
-            document.getElementById("_biaya").innerHTML = "15.000 Yen";
+            document.getElementById("_panjang").value = "57 cm (P)";
+            document.getElementById("_lebar").value = "46 cm (L)";
+            document.getElementById("_tinggi").value = "42 cm (T)";
+            document.getElementById("_biaya").innerHTML = "13.000 Yen";
           } else {
-            document.getElementById("_panjang").value = "66 cm (P)";
+            document.getElementById("_panjang").value = "60 cm (P)";
             document.getElementById("_lebar").value = "56 cm (L)";
             document.getElementById("_tinggi").value = "48 cm (T)";
             document.getElementById("_biaya").innerHTML = "18.000 Yen";
