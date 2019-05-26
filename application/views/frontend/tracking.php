@@ -12,10 +12,13 @@
 						<td>Barang</td>
 						<td>Total Barang</td>
 						<td>Total Berat(kg)</td>
-						<td>Total Biaya</td>
+						<td>Daerah</td>
 						<td>Jenis Packing</td>
 						<td>Tanggal Dikirim</td>
 						<td>Tanggal Diterima</td>
+						<td>Biaya Tambahan</td>
+						<td>Total Biaya</td>
+						<td>Agen</td>
 						<td>Status</td>
 						<td>Keterangan</td>
 					</tr>
@@ -38,10 +41,13 @@
 						<td><?php echo $dt_list_products; ?></td>
 						<td><center><?php echo $dt_total_items; ?></center></td>
 						<td><center><?php echo $dt_total_weight; ?></center></td>
-						<td><center><?php echo $dt_total_price; ?></center></td>
+						<td><?php echo $dt_province; ?></td>
+						<td><?php echo $pk_name; ?></td>
 						<td><center><?php echo $t_date_delivery; ?></center></td>
 						<td><center><?php echo $t_date_reception; ?></center></td>
-						<td><?php echo $pk_name; ?></td>
+						<td><center><?php echo $dt_additional_cost; ?></center></td>
+						<td><center><?php echo $dt_total_price; ?></center></td>
+						<td><?php echo $dt_agent; ?></td>
 						<td><?php echo $s_name; ?></td>
 						<td><?php echo $t_desc; ?></td>
 					</tr>

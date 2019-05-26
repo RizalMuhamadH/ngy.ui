@@ -182,13 +182,13 @@
 
                   <select id="dus" name="dus" onchange="getCheck()" class="form-control" style="width:340px;margin-left:10px;">
 
-                    <option value="0">Dus S</option>
+                    <option value="0">Box S</option>
 
-                    <option value="1">Dus M</option>
+                    <option value="1">Box M</option>
 
-                    <option value="2">Dus L</option>
+                    <option value="2">Box L</option>
 
-                    <option value="3">Dus LL</option>
+                    <option value="3">Box LL</option>
 
                   </select>
 
