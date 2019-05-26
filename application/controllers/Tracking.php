@@ -61,6 +61,8 @@ class Tracking extends CI_Controller
                 't_date_reception' => $row->t_date_reception,
                 't_status' => $row->t_status,
                 't_desc' => $row->t_desc,
+                't_date_delivery' => $row->t_date_delivery,
+                't_date_reception' => $row->t_date_reception,
                 'dt_id' => $row->dt_id,
                 'dt_list_products' => $items,
                 'dt_total_weight' => $row->dt_total_weight,

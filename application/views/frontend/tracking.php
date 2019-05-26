@@ -12,7 +12,10 @@
 						<td>Barang</td>
 						<td>Total Barang</td>
 						<td>Total Berat(kg)</td>
+						<td>Total Biaya</td>
 						<td>Jenis Packing</td>
+						<td>Tanggal Dikirim</td>
+						<td>Tanggal Diterima</td>
 						<td>Status</td>
 						<td>Keterangan</td>
 					</tr>
@@ -23,18 +26,21 @@
 							<?php echo $c_address_sender; ?><br>
 							<?php echo $c_city_sender; ?>
 							<?php echo " ".$c_postcode_sender; ?><br>
-							<?php echo "Tlpn.".$c_phone_sender; ?>
+							<?php echo "Tlpn : ".$c_phone_sender; ?>
 						</td>
 						<td>
 							<?php echo $c_name_receiver; ?><br>
 							<?php echo $c_address_receiver; ?><br>
 							<?php echo $c_city_receiver; ?>
 							<?php echo " ".$c_postcode_receiver; ?><br>
-							<?php echo "Tlpn.".$c_phone_receiver; ?>
+							<?php echo "Tlpn : ".$c_phone_receiver; ?>
 						</td>
 						<td><?php echo $dt_list_products; ?></td>
 						<td><center><?php echo $dt_total_items; ?></center></td>
 						<td><center><?php echo $dt_total_weight; ?></center></td>
+						<td><center><?php echo $dt_total_price; ?></center></td>
+						<td><center><?php echo $t_date_delivery; ?></center></td>
+						<td><center><?php echo $t_date_reception; ?></center></td>
 						<td><?php echo $pk_name; ?></td>
 						<td><?php echo $s_name; ?></td>
 						<td><?php echo $t_desc; ?></td>
