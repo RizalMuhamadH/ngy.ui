@@ -150,12 +150,12 @@ class Order extends CI_Controller
             'c_address_sender' => $this->input->post('c_address_sender',TRUE),
             'c_city_sender' => $this->input->post('c_city_sender',TRUE),
             'c_postcode_sender' => $this->input->post('c_postcode_sender',TRUE),
-            'c_phone_sender' => $this->input->post('c_phone_sender',TRUE),
+            'c_phone_sender' => $this->input->post('c_phone_sender',TRUE).",".$this->input->post('c_phone_sender_2',TRUE),
             'c_name_receiver' => $this->input->post('c_name_receiver',TRUE),
             'c_address_receiver' => $this->input->post('c_address_receiver',TRUE),
             'c_city_receiver' => $this->input->post('c_city_receiver',TRUE),
             'c_postcode_receiver' => $this->input->post('c_postcode_receiver',TRUE),
-            'c_phone_receiver' => $this->input->post('c_phone_receiver',TRUE),
+            'c_phone_receiver' => $this->input->post('c_phone_receiver',TRUE).",".$this->input->post('c_phone_receiver',TRUE),
             );
 
             $idCustomer = $this->Order_model->insert($data);
@@ -336,11 +336,13 @@ class Order extends CI_Controller
 	$this->form_validation->set_rules('c_city_sender', 'kota', 'trim|required');
 	$this->form_validation->set_rules('c_postcode_sender', 'kode pos', 'trim|required');
 	$this->form_validation->set_rules('c_phone_sender', 'telepon', 'trim|required');
+	$this->form_validation->set_rules('c_phone_sender_2', 'telepon', 'trim|required');
 	$this->form_validation->set_rules('c_name_receiver', 'nama', 'trim|required');
 	$this->form_validation->set_rules('c_address_receiver', 'alamat', 'trim|required');
 	$this->form_validation->set_rules('c_city_receiver', 'kota', 'trim|required');
 	$this->form_validation->set_rules('c_postcode_receiver', 'kode pos', 'trim|required');
     $this->form_validation->set_rules('c_phone_receiver', 'telepon', 'trim|required');
+    $this->form_validation->set_rules('c_phone_receiver_2', 'telepon', 'trim|required');
 
     $this->form_validation->set_rules('dt_total_items', 'total', 'trim|required');
     $this->form_validation->set_rules('dt_total_weight', 'berat', 'trim|required');
